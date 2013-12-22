@@ -2,8 +2,8 @@ A simple reflection shader.
 
 ![Screenshot](http://keijiro.github.io/unity-simple-refraction/screenshot.png)
 
+- Simulates refractions and reflections with the Fresnel effect.
 - Only simulates the first refraction (ignores the second refraction).
-- Reflection with the Fresnel effect.
 
 Not suitable for photo-realistic rendering but enough for casual use.
 
