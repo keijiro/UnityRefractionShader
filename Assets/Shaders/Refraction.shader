@@ -23,11 +23,12 @@
 		};
 
 		void surf (Input IN, inout SurfaceOutput o) {
+            float3 n = normalize (IN.worldNormal);
 			float3 v = normalize (IN.viewDir);
-			float fr = pow(1.0f - dot(v, IN.worldNormal), _Fresnel) * _Reflectance;
+			float fr = pow(1.0f - dot(v, n), _Fresnel) * _Reflectance;
 			
-			float3 reflectDir = reflect(-v, IN.worldNormal);
-			float3 refractDir = refract(-v, IN.worldNormal, _Refraction);
+			float3 reflectDir = reflect(-v, n);
+			float3 refractDir = refract(-v, n, _Refraction);
 			
 			o.Emission = texCUBE (_EnvTex, refractDir).rgb + texCUBE (_EnvTex, reflectDir).rgb * fr;
 		}
