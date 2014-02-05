@@ -82,6 +82,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 55238786}
+  - 114: {fileID: 55238787}
   m_Layer: 0
   m_Name: Camera Position
   m_TagString: Untagged
@@ -101,6 +102,25 @@ Transform:
   m_Children:
   - {fileID: 2128614214}
   m_Father: {fileID: 1867804838}
+--- !u!114 &55238787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 55238785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bf162bb389446a5b574e68675a2bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position:
+    frequency: 0
+    amount: 0
+    octave: 0
+  rotation:
+    frequency: .200000003
+    amount: 8
+    octave: 3
 --- !u!1 &220188153
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 220188153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcda91d997af451b9756753d18ce0f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b2d1367d87d34805943e8b661e3be73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 100000, guid: 0717eff3a60e24049a7139cb002e962d, type: 2}
@@ -2309,7 +2329,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1867804838}
   m_Layer: 0
-  m_Name: Pivot
+  m_Name: Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2321,7 +2341,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867804837}
-  m_LocalRotation: {x: 0, y: .0757615194, z: 0, w: -.997125983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2344,10 +2364,7 @@ GameObject:
   - 114: {fileID: 2128614216}
   - 114: {fileID: 2128614217}
   - 114: {fileID: 2128614215}
-  - 114: {fileID: 2128614218}
   - 114: {fileID: 2128614219}
-  - 114: {fileID: 2128614220}
-  - 114: {fileID: 2128614221}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2430,11 +2447,11 @@ MonoBehaviour:
   mode: 0
   intensity: 4
   chromaticAberration: 4
-  axialAberration: .5
+  axialAberration: 5
   blur: 0
   blurSpread: .75
-  luminanceDependency: .25
-  blurDistance: 2.5
+  luminanceDependency: 1
+  blurDistance: 5
   vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
@@ -2507,30 +2524,6 @@ MonoBehaviour:
   blurAndFlaresShader: {fileID: 4800000, guid: be6e39cf196f146d5be72fbefb18ed75, type: 3}
   brightPassFilterShader: {fileID: 4800000, guid: 0aeaa4cb29f5d4e9c8455f04c8575c8c,
     type: 3}
---- !u!114 &2128614218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2128614209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd05e71c69dd4457fa205c9eea7c2326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  adaptiveTextureSize: 256
-  remapCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  exposureAdjustment: 1.20000005
-  middleGrey: .400000006
-  white: 2
-  adaptionSpeed: 1.5
-  tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
-  validRenderTextureFormat: 1
 --- !u!114 &2128614219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,34 +2673,3 @@ MonoBehaviour:
     type: 3}
   colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
     type: 3}
---- !u!114 &2128614220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2128614209}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17944050ab2f41e7ac349039a8d36ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  superSize: 2
---- !u!114 &2128614221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2128614209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac5ac7516ce845fc8c9f35da43dfdc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position:
-    frequency: .100000001
-    amount: 0
-    octave: 3
-  rotation:
-    frequency: .200000003
-    amount: 8
-    octave: 3

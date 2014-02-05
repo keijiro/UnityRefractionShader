@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ParticleController : MonoBehaviour
+public class ReplicatePrefabAlongParticle : MonoBehaviour
 {
     public GameObject prefab;
     ParticleSystem.Particle[] particles;

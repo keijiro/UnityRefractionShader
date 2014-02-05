@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlendAnimation : MonoBehaviour
+public class JigglyBlendShapeAnimation : MonoBehaviour
 {
     public float speed = 3.0f;
+
     SkinnedMeshRenderer smr;
     int shape1;
     int shape2;

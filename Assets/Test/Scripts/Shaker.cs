@@ -57,6 +57,18 @@ public class Shaker
         time += delta * frequency;
     }
 
+    public void Reset ()
+    {
+        vectors = new Vector2[3];
+        time = Random.value * 10.0f;
+        
+        for (var i = 0; i < 3; i++)
+        {
+            var theta = Random.value * Mathf.PI * 2;
+            vectors [i].Set (Mathf.Cos (theta), Mathf.Sin (theta));
+        }
+    }
+
     #endregion
 
     #region Private functions
@@ -65,14 +77,7 @@ public class Shaker
     {
         if (vectors == null)
         {
-            vectors = new Vector2[3];
-            time = Random.value * 10.0f;
-            
-            for (var i = 0; i < 3; i++)
-            {
-                var theta = Random.value * Mathf.PI * 2;
-                vectors [i].Set (Mathf.Cos (theta), Mathf.Sin (theta));
-            }
+            Reset ();
         }
     }
 

@@ -10,7 +10,7 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="TransparentButHasDepth" }
         
         CGPROGRAM
 
